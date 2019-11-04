@@ -28,6 +28,11 @@ star=index($0,"*");
 if (star!=0)
 {
     $0=substr($0,star+1);
+    dot=index($0,".");
+    if (dot!=0)
+        $0=substr($0,dot+1);
+    else
+        next;
     s1=substr($0,1,1);
 }
 if (s1==".")
