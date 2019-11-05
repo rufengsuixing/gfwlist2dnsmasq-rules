@@ -12,17 +12,17 @@ else{
 }
 
 if (s1=="|")
-    {s2=substr($0,2,2);
+    {s2=substr($0,2,1);
     if (s2=="|")
-        {
+    {
         $0=substr($0,3);
     }else{
         split($0,d,"/");
         $0=d[3];
     }}
 else{
-split($0,d,"/");
-$0=d[1];
+    split($0,d,"/");
+    $0=d[1];
 }
 star=index($0,"*");
 if (star!=0)
@@ -38,7 +38,7 @@ if (star!=0)
 if (s1==".")
 {fin=substr($0,2);}
 else{fin=$0;}
-if (index($0,".")==0) next;
+if (index(fin,".")==0) next;
 match(fin,"^[0-9\.]+")
 if (RSTART==1 && RLENGTH==length(fin)) {print "ipset add gfwlist "fin>"/tmp/doipset.sh";next;}
 if (fin=="" || finl==fin) next;
